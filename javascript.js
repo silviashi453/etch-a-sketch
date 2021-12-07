@@ -56,15 +56,16 @@ function clearGrid() {
 }
 
 function setupGrid(size) {
-  grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-  grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
-  for (let i = 0; i < size * size; i++) {
-    const gridElement = document.createElement('div')
-    gridElement.addEventListener('mouseover', changeColor)
-    grid.appendChild(gridElement)
-  }
+    for (let i = 0; i < size * size; i++) {
+      const gridElement = document.createElement('div')
+      gridElement.addEventListener('mouseover', changeColor)
+      grid.appendChild(gridElement)
+    }
 }
+
 
 function changeColor(e) {
   if (currentMode === 'rainbow') {
@@ -75,24 +76,16 @@ function changeColor(e) {
   } else if (currentMode === 'color') {
     e.target.style.backgroundColor = currentColor
   } else if (currentMode === 'eraser') {
-    e.target.style.backgroundColor = '#fefefe'
+    e.target.style.backgroundColor = 'whitesmoke';
   }
 }
 
-function activateButton(newMode) {
-  if (currentMode === 'rainbow') {
-    rainbowBtn.classList.remove('active')
-  } else if (currentMode === 'color') {
-    colorBtn.classList.remove('active')
-  } else if (currentMode === 'eraser') {
-    eraserBtn.classList.remove('active')
-  }
-
-  if (newMode === 'rainbow') {
+function activateButton(mode) {
+  if (mode === 'rainbow') {
     rainbowBtn.classList.add('active')
-  } else if (newMode === 'color') {
+  } else if (mode === 'color') {
     colorBtn.classList.add('active')
-  } else if (newMode === 'eraser') {
+  } else if (mode === 'eraser') {
     eraserBtn.classList.add('active')
   }
 }
