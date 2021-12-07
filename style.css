@@ -31,7 +31,8 @@ header {
 
 #grid {
     background-color: whitesmoke;
-    flex-grow: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
     height:560px;
     width: 660px;
     padding: 0px;
